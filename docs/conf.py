@@ -18,8 +18,12 @@ extensions = [
     'sphinx_js',
     'sphinx_copybutton'
 ]
-import os
-js_source_path = [os.path.abspath('../../src/')]
+from pathlib import Path
+js_source_path = [
+    str(Path(__file__).resolve().parents[1] / "src")
+]
+primary_domain = "js"
+highlight_language = "javascript"
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -37,7 +41,3 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
 ]
-
-import os
-print("JS PATH:", js_source_path[0])
-print("FILES:", os.listdir(os.path.abspath(js_source_path[0])))
