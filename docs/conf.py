@@ -18,10 +18,7 @@ extensions = [
     'sphinx_js',
     'sphinx_copybutton'
 ]
-from pathlib import Path
-js_source_path = [
-    str(Path(__file__).resolve().parents[1] / "src")
-]
+js_source_path = "../src"
 primary_domain = "js"
 highlight_language = "javascript"
 
@@ -41,3 +38,6 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
 ]
+
+import logging
+logging.basicConfig(level=logging.DEBUG)
