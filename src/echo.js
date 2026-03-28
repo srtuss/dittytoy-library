@@ -34,6 +34,7 @@ class Delayline {
  * @function echo#create
  * @param {Object} parameters
  * @param {number} [parameters.sidetime] - Side-delay time in seconds. Default is 0.01.
+ * @param {number} [parameters.feedback] - Feedback amount. Affects the number of echo repetitions. Default is 0.5.
  * @param {number} [parameters.division] - Feedback spacing in quarter notes. Default is 3/3.
  * @param {number} [parameters.pan] - Feedback panning. Default is 0.5.
  * @param {number} [parameters.stereo] - Stereo widening amount. If >1 the amplitude of the stereo information is amplified which deepens the effect. Default is 1.5.
