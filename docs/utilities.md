@@ -122,7 +122,3 @@ loop(() => {
 ## **fft** - Fast Fourier Transform
 
 Coming soon
-
-```{eval-rst}
-.. js:autofunction:: fft
-```

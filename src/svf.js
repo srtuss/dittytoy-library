@@ -6,7 +6,7 @@ class SVF {
 
     constructor()
     {
-        this.lp=this.bp=this.hp=this.ap=this.no=this.ic1eq=this.ic2eq=0;
+        Object.assign(this,{lp:0,hp:0,ap:0,no:0,ic1eq:0,ic2eq:0,a1:0,a2:0,a3:1,q:1});
     }
     /**
      * Set parameters.
@@ -15,13 +15,16 @@ class SVF {
      * @returns {SVF} Returns reference to SVF class for chaining function calls.
      */
     sp(fc, q) {
-        fc = clamp(fc * ditty.dt, 0, .499);
-        let g = Math.tan(PI * fc);
-        this.k = 1 / q;
-        this.a1 = 1 / (1 + g * (g + this.k));
-        this.a2 = g * this.a1;
-        this.a3 = g * this.a2;
-        return this;
+        fc = clamp(fc * ditty.dt, 1e-9, .5);
+        let s = this;
+        if(isFinite(q))
+            s.q = max(q, 0);
+        let g = tan(PI * fc);
+        s.k = 1 / s.q;
+        s.a1 = 1 / (1 + g * (g + s.k));
+        s.a2 = g * s.a1;
+        s.a3 = g * s.a2;
+        return s;
     }
     /**
      * Process next sample.

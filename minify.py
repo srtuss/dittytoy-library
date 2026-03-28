@@ -1,4 +1,4 @@
-VERSION_STR = 'The Dittytoy Library v1.0'
+VERSION_STR = 'The Dittytoy Library v1.01'
 OUTPUT_FILE = 'minified.js'
 
 import re, glob, os
